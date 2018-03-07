@@ -55,7 +55,7 @@
 	
 	// IMPORTANT: Please read description of options here - https://gourl.io/api-php.html#options
 	
-	$userID 			= "demo";	  // place your registered userID or md5(userID) here (user1, user7, uo43DC, etc).
+	$userID 		= "demo";	  // place your registered userID or md5(userID) here (user1, user7, uo43DC, etc).
 									  // You can use php $_SESSION["userABC"] for store userID, amount, etc
 									  // You don't need to use userID for unregistered website visitors - $userID = "";
 									  // if userID is empty, system will autogenerate userID and save it in cookies
@@ -71,7 +71,7 @@
 	
 	// List of coins that you accept for payments
 	//$coins = array('bitcoin', 'bitcoincash', 'litecoin', 'dash', 'dogecoin', 'speedcoin', 'reddcoin', 'potcoin', 'feathercoin', 'vertcoin', 'peercoin', 'monetaryunit', 'universalcurrency');
-	$coins = array('bitcoin', 'bitcoincash', 'litecoin', 'dash', 'speedcoin');  // for example, accept payments in bitcoin, bitcoincash, litecoin, dash, speedcoin 
+	$coins = array('litecoin','bitcoin');  // for example, accept payments in bitcoin, bitcoincash, litecoin, dash, speedcoin 
 	
 	// Create record for each your coin - https://gourl.io/editrecord/coin_boxes/0 ; and get free gourl keys
 	// It is not bitcoin wallet private keys! Place GoUrl Public/Private keys below for all coins which you accept
@@ -84,16 +84,20 @@
 					"litecoin" => 		array("public_key" => "-your public key for Litecoin box-", "private_key" => "-your private key for Litecoin box-")); // etc.
 			 
 	// Demo Keys; for tests	(example - 5 coins)
-	$all_keys = array(	"bitcoin" => array(		"public_key" => "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",  
-										"private_key" => "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"),
-					  "bitcoincash" => array("public_key" => "25656AAeOGaPBitcoincash77BCHPUBOGF20MLcgvHMoXHmMRx", 
-					  					"private_key" => "25656AAeOGaPBitcoincash77BCHPRV8quZcxPwfEc93ArGB6D"),
-					  "litecoin" => array(	"public_key" => "25657AAOwwzoLitecoin77LTCPUB4PVkUmYCa2dR770wNNstdk", 
-					  					"private_key" => "25657AAOwwzoLitecoin77LTCPRV7hmp8s3ew6pwgOMgxMq81F"),
-					  "dash" => array(		"public_key" => "25658AAo79c3Dash77DASHPUBqwIefT1j9fqqMwUtMI0huVL0J", 
-					  					"private_key" => "25658AAo79c3Dash77DASHPRVG7w3jg0Tc5Pfi34U8o5JEiTss"),
-					  "speedcoin" => array(	"public_key" => "20116AA36hi8Speedcoin77SPDPUBjTMX31yIra1IBRssY7yFy", 
-					  					"private_key" => "20116AA36hi8Speedcoin77SPDPRVNOwjzYNqVn4Sn5XOwMI2c")); // Demo keys!
+	// $all_keys = array(	"bitcoin" => array(		"public_key" => "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",  
+	// 									"private_key" => "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"),
+	// 				  "bitcoincash" => array("public_key" => "25656AAeOGaPBitcoincash77BCHPUBOGF20MLcgvHMoXHmMRx", 
+	// 				  					"private_key" => "25656AAeOGaPBitcoincash77BCHPRV8quZcxPwfEc93ArGB6D"),
+	// 				  "litecoin" => array(	"public_key" => "25657AAOwwzoLitecoin77LTCPUB4PVkUmYCa2dR770wNNstdk", 
+	// 				  					"private_key" => "25657AAOwwzoLitecoin77LTCPRV7hmp8s3ew6pwgOMgxMq81F"),
+	// 				  "dash" => array(		"public_key" => "25658AAo79c3Dash77DASHPUBqwIefT1j9fqqMwUtMI0huVL0J", 
+	// 				  					"private_key" => "25658AAo79c3Dash77DASHPRVG7w3jg0Tc5Pfi34U8o5JEiTss"),
+	// 				  "speedcoin" => array(	"public_key" => "20116AA36hi8Speedcoin77SPDPUBjTMX31yIra1IBRssY7yFy", 
+	// 									  "private_key" => "20116AA36hi8Speedcoin77SPDPRVNOwjzYNqVn4Sn5XOwMI2c")); // Demo keys!
+	$all_keys = array(	"litecoin" => array(	"public_key" => "27025AABwopiLitecoin77LTCPUBcHRk4OegHlaWAh0xzpmLJD", 
+											"private_key" => "27025AABwopiLitecoin77LTCPRVJ3RshPv9zvcp0Kt0HfGT9N"),
+						"bitcoin" => array(	"public_key" => "27023AAtNOwwBitcoin77BTCPUBzo4PVkUmYCa2dR770wNNstd", 
+											"private_key" => "27023AAtNOwwBitcoin77BTCPRVk7hmp8s3ew6pwgOMgxMq81F")); 
 
 	//  IMPORTANT: Add in file /lib/cryptobox.config.php your database settings and your gourl.io coin private keys (need for Instant Payment Notifications) -
 	/* if you use demo keys above, please add to /lib/cryptobox.config.php - 
