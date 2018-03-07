@@ -56,7 +56,7 @@
                 <li>
                     <?php 
                         $base_url = $this->config->base_url();
-                        echo '<a href="'.$base_url.'eyeglasses/index">Home Page</a>';
+                        echo '<a href="'.$base_url.'eyeglasses/index">欢迎页面</a>';
                     ?>
                 </li>
                 <li>
@@ -90,35 +90,42 @@
                     <li class="navigation__active">
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/view\')"><i class="zmdi zmdi-home"></i> Dashboard</a>';
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/view\')"><i class="zmdi zmdi-home"></i> 首页</a>';
                         ?>
                     </li>
 
                     <li>
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/products\')"><i class="zmdi zmdi-store"></i> Products</a>';
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/products\')"><i class="zmdi zmdi-store"></i> 产品</a>';
                         ?>
                     </li>
 
                     <li>
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a href="'.$base_url.'admin/about"><i class="zmdi zmdi-assignment-account"></i> About</a>';
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/about\')"><i class="zmdi zmdi-assignment-account"></i> 关于</a>';
                         ?>    
                     </li>
 
                     <li>
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/customers\')"><i class="zmdi zmdi-nature-people"></i> Customers</a>';
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/customers\')"><i class="zmdi zmdi-nature-people"></i> 客户</a>';
                         ?> 
                     </li>
 
                     <li>
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/settings\')"><i class="zmdi zmdi-settings"></i> Settings</a>';
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'order/view\')"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
+                        ?> 
+                    </li>
+
+                    <li>
+                        <?php 
+                            $base_url = $this->config->base_url();
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/settings\')"><i class="zmdi zmdi-settings"></i> 设置</a>';
                         ?>
                     </li>
 

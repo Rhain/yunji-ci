@@ -8,6 +8,9 @@ $route['admin/products'] = 'admin/products';
 $route['admin/view'] = 'admin/view';
 $route['admin/index'] = 'admin/index';
 $route['admin/create_eyeglasses'] = 'admin/create_eyeglasses';
+// admin order
+$route['order/view'] = 'admin/order/view';
+$route['order/paycallback'] = 'admin/order/paycallback';
 //eyeglasses module
 $route['eyeglasses/home'] = 'eyeglasses/home';
 $route['eyeglasses/details'] = 'eyeglasses/details';
