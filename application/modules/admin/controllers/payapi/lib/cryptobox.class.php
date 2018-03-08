@@ -842,9 +842,10 @@ class Cryptobox {
 	    $page_url      = "//".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."#".$ext2; // Current page url
 	    $hide       =  "style='display:none'";
 	    
-	    $phpdir_path   = (defined("CRYPTOBOX_PHP_FILES_PATH")) ? CRYPTOBOX_PHP_FILES_PATH : "";            // path to directory with files cryptobox.class.php/cryptobox.callback.php/cryptobox.newpayment.php; cryptobox.newpayment.php will be automatically call through ajax or php two times - when payment received and when confirmed (6 confirmations) 
-	    $imgdir_path   = (defined("CRYPTOBOX_IMG_FILES_PATH")) ? CRYPTOBOX_IMG_FILES_PATH : "images/";     // path to directory with coin image files (directory 'images' by default)
-	    $jsdir_path    = (defined("CRYPTOBOX_JS_FILES_PATH"))  ? CRYPTOBOX_JS_FILES_PATH : "";             // path to directory with files ajax.min.js/support.min.js
+	//    $phpdir_path   = (defined("CRYPTOBOX_PHP_FILES_PATH")) ? CRYPTOBOX_PHP_FILES_PATH : "";            // path to directory with files cryptobox.class.php/cryptobox.callback.php/cryptobox.newpayment.php; cryptobox.newpayment.php will be automatically call through ajax or php two times - when payment received and when confirmed (6 confirmations) 
+		$phpdir_path   = base_url().'application/modules/admin/controllers/payapi/lib/';
+		$imgdir_path   = (defined("CRYPTOBOX_IMG_FILES_PATH")) ? CRYPTOBOX_IMG_FILES_PATH : base_url().'assets/crypto/images/';     // path to directory with coin image files (directory 'images' by default)
+	    $jsdir_path    = (defined("CRYPTOBOX_JS_FILES_PATH"))  ? CRYPTOBOX_JS_FILES_PATH : base_url().'assets/crypto/js/';             // path to directory with files ajax.min.js/support.min.js
 	     
 	    
 	    

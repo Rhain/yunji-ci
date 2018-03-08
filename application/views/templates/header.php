@@ -87,10 +87,11 @@
                 </div>
 
                 <ul class="navigation">
-                    <li class="navigation__active">
+                    <li class="index_menu navigation__active">
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/view\')"><i class="zmdi zmdi-home"></i> 首页</a>';
+                        //    echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/view\')"><i class="zmdi zmdi-home"></i> 首页</a>';
+                        echo '<a href="'. $base_url . 'admin/view"><i class="zmdi zmdi-home"></i> 首页</a>';
                         ?>
                     </li>
 
@@ -115,10 +116,11 @@
                         ?> 
                     </li>
 
-                    <li>
+                    <li class="order_menu">
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'order/view\')"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
+                         //   echo '<a onclick="show_page_for_backend(\'' . $base_url . 'order/view\')"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
+                         echo '<a href="' . $base_url . 'order/view"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
                         ?> 
                     </li>
 

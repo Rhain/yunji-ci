@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2017-11-04 10:57:39
--- 服务器版本： 5.7.17-log
--- PHP Version: 7.1.1
+-- Generation Time: 2018-03-08 18:23:34
+-- 服务器版本： 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.27-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `xstore`
+-- Database: `crypto`
 --
 
 -- --------------------------------------------------------
@@ -60,6 +62,40 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `cate_name`) VALUES
 (1, 'Sunglasses'),
 (2, 'Optical');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `crypto_payments`
+--
+
+CREATE TABLE `crypto_payments` (
+  `paymentID` int(11) UNSIGNED NOT NULL,
+  `boxID` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `boxType` enum('paymentbox','captchabox') NOT NULL,
+  `orderID` varchar(50) NOT NULL DEFAULT '',
+  `userID` varchar(50) NOT NULL DEFAULT '',
+  `countryID` varchar(3) NOT NULL DEFAULT '',
+  `coinLabel` varchar(6) NOT NULL DEFAULT '',
+  `amount` double(20,8) NOT NULL DEFAULT '0.00000000',
+  `amountUSD` double(20,8) NOT NULL DEFAULT '0.00000000',
+  `unrecognised` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `addr` varchar(34) NOT NULL DEFAULT '',
+  `txID` char(64) NOT NULL DEFAULT '',
+  `txDate` datetime DEFAULT NULL,
+  `txConfirmed` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `txCheckDate` datetime DEFAULT NULL,
+  `processed` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `processedDate` datetime DEFAULT NULL,
+  `recordCreated` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+--
+-- 转存表中的数据 `crypto_payments`
+--
+
+INSERT INTO `crypto_payments` (`paymentID`, `boxID`, `boxType`, `orderID`, `userID`, `countryID`, `coinLabel`, `amount`, `amountUSD`, `unrecognised`, `addr`, `txID`, `txDate`, `txConfirmed`, `txCheckDate`, `processed`, `processedDate`, `recordCreated`) VALUES
+(1, 27108, 'paymentbox', 'invoice2', 'demo', 'CHN', 'SPD', 10.03280000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', 'fd54b1a123b824f230570761f92bbdf35db8b750feb33d4c691f3113589ae8b2', '2018-03-08 07:49:23', 0, '2018-03-08 07:49:30', 0, NULL, '2018-03-08 07:49:30');
 
 -- --------------------------------------------------------
 
@@ -122,6 +158,13 @@ CREATE TABLE `eyeglasses` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- 转存表中的数据 `eyeglasses`
+--
+
+INSERT INTO `eyeglasses` (`id`, `title`, `description`, `price`, `stock`, `category`, `brand_name`, `model_number`, `material`, `gender`, `frame_color`, `lens_color`, `lens_width`, `nose_bridge`, `temple`, `total_width`, `vertical`, `lens_index`, `recommend`, `is_private`, `created_at`, `updated_at`) VALUES
+(5, 'ADFDS', 'fdfewrewr', 23, 321, 'sunglasses', 'DFDFD', 'DFD343', 'acetate', 'female', '', '', 0, 0, 0, 0, 0, 0.00, 1, 0, '2018-03-07 06:23:45', '2018-03-07 06:23:45');
+
 -- --------------------------------------------------------
 
 --
@@ -133,6 +176,14 @@ CREATE TABLE `eyeglasses_media` (
   `id_eyeglasses` int(10) UNSIGNED NOT NULL,
   `id_media` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 转存表中的数据 `eyeglasses_media`
+--
+
+INSERT INTO `eyeglasses_media` (`id`, `id_eyeglasses`, `id_media`) VALUES
+(9, 5, 1),
+(10, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -181,6 +232,41 @@ CREATE TABLE `media` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- 转存表中的数据 `media`
+--
+
+INSERT INTO `media` (`id`, `title`, `guid`, `created_at`, `updated_at`) VALUES
+(1, '', '1.jpg', '2018-03-07 06:23:45', '2018-03-07 06:23:45'),
+(2, '', '2.jpg', '2018-03-07 06:23:45', '2018-03-07 06:23:45');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `usd_amount` float NOT NULL,
+  `token_cnt` int(11) NOT NULL,
+  `is_paid` tinyint(1) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `usd_amount`, `token_cnt`, `is_paid`, `created`, `updated`) VALUES
+(1, 1, 3.85, 12, 0, '2018-03-08 10:16:15', '2018-03-08 10:16:15'),
+(2, 1, 6.74, 21, 0, '2018-03-08 10:17:56', '2018-03-08 10:17:56'),
+(3, 1, 3.85, 12, 0, '2018-03-08 10:18:54', '2018-03-08 10:18:54'),
+(4, 1, 1.28, 4, 0, '2018-03-08 10:22:53', '2018-03-08 10:22:53'),
+(5, 1, 6.74, 21, 0, '2018-03-08 10:23:17', '2018-03-08 10:23:17');
+
 -- --------------------------------------------------------
 
 --
@@ -212,11 +298,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$08$worrAMRVIye5KILvQ/JiK.dyaCCmXYyJ22lvJuNvhz.kIq.BHMpPe', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1509792950, 1, 'Admin', 'istrator', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$08$worrAMRVIye5KILvQ/JiK.dyaCCmXYyJ22lvJuNvhz.kIq.BHMpPe', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1520503918, 1, 'Admin', 'istrator', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
- 
+--
+-- 表的结构 `users_groups`
+--
 
 CREATE TABLE `users_groups` (
   `id` int(11) UNSIGNED NOT NULL,
@@ -232,51 +320,6 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
 (2, 1, 2);
 
-----------------------------------------------------------------
---
--- 表的结构 `crypto_payments`
---
-CREATE TABLE `crypto_payments` (
-  `paymentID` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `boxID` int(11) unsigned NOT NULL DEFAULT '0',
-  `boxType` enum('paymentbox','captchabox') NOT NULL,
-  `orderID` varchar(50) NOT NULL DEFAULT '',
-  `userID` varchar(50) NOT NULL DEFAULT '',
-  `countryID` varchar(3) NOT NULL DEFAULT '',
-  `coinLabel` varchar(6) NOT NULL DEFAULT '',
-  `amount` double(20,8) NOT NULL DEFAULT '0.00000000',
-  `amountUSD` double(20,8) NOT NULL DEFAULT '0.00000000',
-  `unrecognised` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `addr` varchar(34) NOT NULL DEFAULT '',
-  `txID` char(64) NOT NULL DEFAULT '',
-  `txDate` datetime DEFAULT NULL,
-  `txConfirmed` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `txCheckDate` datetime DEFAULT NULL,
-  `processed` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `processedDate` datetime DEFAULT NULL,
-  `recordCreated` datetime DEFAULT NULL,
-  PRIMARY KEY (`paymentID`),
-  KEY `boxID` (`boxID`),
-  KEY `boxType` (`boxType`),
-  KEY `userID` (`userID`),
-  KEY `countryID` (`countryID`),
-  KEY `orderID` (`orderID`),
-  KEY `amount` (`amount`),
-  KEY `amountUSD` (`amountUSD`),
-  KEY `coinLabel` (`coinLabel`),
-  KEY `unrecognised` (`unrecognised`),
-  KEY `addr` (`addr`),
-  KEY `txID` (`txID`),
-  KEY `txDate` (`txDate`),
-  KEY `txConfirmed` (`txConfirmed`),
-  KEY `txCheckDate` (`txCheckDate`),
-  KEY `processed` (`processed`),
-  KEY `processedDate` (`processedDate`),
-  KEY `recordCreated` (`recordCreated`),
-  KEY `key1` (`boxID`,`orderID`),
-  KEY `key2` (`boxID`,`orderID`,`userID`),
-  UNIQUE KEY `key3` (`boxID`, `orderID`, `userID`, `txID`, `amount`, `addr`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 --
 -- Indexes for dumped tables
 --
@@ -292,6 +335,32 @@ ALTER TABLE `backend_icons`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `crypto_payments`
+--
+ALTER TABLE `crypto_payments`
+  ADD PRIMARY KEY (`paymentID`),
+  ADD UNIQUE KEY `key3` (`boxID`,`orderID`,`userID`,`txID`,`amount`,`addr`),
+  ADD KEY `boxID` (`boxID`),
+  ADD KEY `boxType` (`boxType`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `countryID` (`countryID`),
+  ADD KEY `orderID` (`orderID`),
+  ADD KEY `amount` (`amount`),
+  ADD KEY `amountUSD` (`amountUSD`),
+  ADD KEY `coinLabel` (`coinLabel`),
+  ADD KEY `unrecognised` (`unrecognised`),
+  ADD KEY `addr` (`addr`),
+  ADD KEY `txID` (`txID`),
+  ADD KEY `txDate` (`txDate`),
+  ADD KEY `txConfirmed` (`txConfirmed`),
+  ADD KEY `txCheckDate` (`txCheckDate`),
+  ADD KEY `processed` (`processed`),
+  ADD KEY `processedDate` (`processedDate`),
+  ADD KEY `recordCreated` (`recordCreated`),
+  ADD KEY `key1` (`boxID`,`orderID`),
+  ADD KEY `key2` (`boxID`,`orderID`,`userID`);
 
 --
 -- Indexes for table `customers`
@@ -332,6 +401,12 @@ ALTER TABLE `media`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -355,51 +430,73 @@ ALTER TABLE `users_groups`
 --
 ALTER TABLE `backend_icons`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- 使用表AUTO_INCREMENT `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `crypto_payments`
+--
+ALTER TABLE `crypto_payments`
+  MODIFY `paymentID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用表AUTO_INCREMENT `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- 使用表AUTO_INCREMENT `eyeglasses`
 --
 ALTER TABLE `eyeglasses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- 使用表AUTO_INCREMENT `eyeglasses_media`
 --
 ALTER TABLE `eyeglasses_media`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- 使用表AUTO_INCREMENT `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- 使用表AUTO_INCREMENT `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用表AUTO_INCREMENT `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- 使用表AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用表AUTO_INCREMENT `users_groups`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- 限制导出的表
 --
@@ -417,6 +514,7 @@ ALTER TABLE `eyeglasses_media`
 ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

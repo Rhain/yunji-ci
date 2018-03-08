@@ -16,7 +16,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td >0.321</td>
+                    <td >
+                        <span class="price">
+                        0.321
+                        </span>
+                    </td>
                     <td >
                         <select>
                             <option>BTH</option>
@@ -26,13 +30,15 @@
                         </select>
                     </td>
                     <td >
-                        <input type="number" name="count" />
+                        <input type="number" name="count" id="cnt"/>
                     </td>
                     <td >
-                        8.96
+                        <span class="total_amount">
+                        0
+                        </span>
                     </td>
                     <td>
-                        <a onclick="buy_item()" >
+                        <a onclick="makeorder()" >
                             <button class="btn btn-sm btn-outline-danger waves-effect">
                                 <i class="zmdi zmdi-delete"></i> 买入
                             </button>
@@ -43,4 +49,6 @@
         </table>
     </div>
 </div>
+<input type="hidden" id="t_amt" />
+<input type="hidden" id="baseurl" value="<?php echo base_url() ?>" />
 <script type="text/javascript" src="<?php echo base_url().'assets/' ?>js/order.js"></script>
