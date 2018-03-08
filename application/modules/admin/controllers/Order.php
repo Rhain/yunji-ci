@@ -31,17 +31,17 @@ class Order extends Admin {
                 $data['total_amount'] = $this->input->post('total_amount');
                 $orderid = $this->order_model->set_order($data);
                 $data['orderid']=$orderid;
-                echo json_encode($data); 
+                $this->output ->set_content_type('application/json') ->set_output(json_encode($data)); 
         }
 
         public function preparePay()
         {
-                $userID 		= "demo";
+                $userID 		= $_GET['userId'];
                 $userFormat		= "COOKIE"; 
-                $orderID		= "invoice2";
-                $amountUSD		= 0.01;
+                $orderID		= $_GET['orderId'];
+                $amountUSD		= intval($_GET['totalAmount']);
                 $period		= "NOEXPIRY";
-                $def_language	= "en";
+                $def_language	= "cn";
                 $def_coin		= "bitcoin";
                 $coins = array('litecoin','bitcoin','speedcoin');
                 $all_keys = array(	"litecoin" => array(	"public_key" => "27025AABwopiLitecoin77LTCPUBcHRk4OegHlaWAh0xzpmLJD", 
@@ -87,9 +87,9 @@ class Order extends Admin {
                 $data['def_coin'] = $def_coin;
                 $data['def_language'] = $def_language;
 
-            $this->load->view('templates/header');    
+        //    $this->load->view('templates/header');    
             $this->load->view('admin/payment_box',$data);
-            $this->load->view('templates/footer');  
+        //    $this->load->view('templates/footer');  
         }
         
 }

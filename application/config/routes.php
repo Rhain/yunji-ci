@@ -12,6 +12,7 @@ $route['admin/create_eyeglasses'] = 'admin/create_eyeglasses';
 $route['order/view'] = 'admin/order/view';
 $route['order/paycallback'] = 'admin/order/paycallback';
 $route['order/makeOrder'] = 'admin/order/makeOrder';
+$route['order/preparePay'] = 'admin/order/preparePay';
 //eyeglasses module
 $route['eyeglasses/home'] = 'eyeglasses/home';
 $route['eyeglasses/details'] = 'eyeglasses/details';

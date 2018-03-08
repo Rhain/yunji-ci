@@ -16,20 +16,33 @@ function makeorder(){
     var post_data = {
         count : $('#cnt').val(),
         total_amount : $('#t_amt').val()
-    }
-    console.log(post_data);
-    jQuery.ajax({
+    };
+    $.ajax({
         url : baseurl+'order/makeOrder',
         type : 'post',
         data : post_data,
-        success : function(response) {
-                console.log(response);
-                if(response.orderid>0){
-                    alert("make it:"+response.orderid);
-                }
-                else {
-                    alert("wrong:"+response.orderid);
-                }
+        success : function(res) {
+            res_url = baseurl+'order/preparePay?orderId='+res.orderid+'&userId='+res.user_id+'&totalAmount='+res.total_amount;
+            show_page_for_backend(res_url);
+                // console.log(res);
+                // if(res.orderid>0){
+                //     var pre_data = {
+                //         orderId     : res.orderid,
+                //         userId      : res.user_id,
+                //         totalAmount : res.total_amount
+                //     };
+                //     $.ajax({
+                //         url : baseurl+'order/preparePay',
+                //         type : 'post',
+                //         data : pre_data,
+                //         success : function(response){
+                //             //    console.log(response);
+                //         }
+                //     })
+                // }
+                // else {
+                //     alert("wrong!");
+                // }
         }
 })
 }
