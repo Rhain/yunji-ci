@@ -8,8 +8,8 @@
  */
 
  define("DB_HOST", 	"localhost");				// hostname
- define("DB_USER", 	"root");		// database username
- define("DB_PASSWORD", 	"toto44");		// database password
+ define("DB_USER", 	"root");
+ define("DB_PASSWORD", 	"Ineedy0ut00");		// database password
  define("DB_NAME", 	"crypto");	// database name
 
 

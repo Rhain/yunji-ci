@@ -1,0 +1,3 @@
+/nbproject/private/
+/application/config/database.php
+/application/modules/admin/controllers/payapi/lib/cryptobox.config.php
