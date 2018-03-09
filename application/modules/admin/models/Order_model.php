@@ -73,5 +73,15 @@ class Order_model extends CI_Model {
                 $this->db->delete('orders',array('id'=>$order_id));
 
         }
+
+        public function get_token($user_id)
+        {
+            $this->db->select('tokens');
+            $this->db->from('users');
+            $this->db->where('id',$user_id);
+            $this->db->limit(1);
+            $tokens = $this->db->get()->row()->tokens;  
+            return $tokens;
+        }
 }
 

@@ -1935,11 +1935,12 @@ class Cryptobox {
 					if (property_exists($row, "idx")) $x = true;
 					$c = count(get_object_vars($row));
 					if ($c > 2 || ($c == 2 && !$x)) $g = true;
-					elseif (!property_exists($row, "nme")) die("Error in run_sql() - 'nme' not exists! SQL: $sql");
+				//	elseif (!property_exists($row, "nme")) die("Error in run_sql() - 'nme' not exists! SQL: $sql");
 					$f = false;
 				}
 	
 				if (!$g && $query->num_rows == 1 && property_exists($row, "nme")) return $row->nme;
+				elseif (!$g && $query->num_rows == 1 && property_exists($row, "token_cnt")) return $row->token_cnt;
 				elseif ($x) $res[$row->idx] = ($g) ? $row : $row->nme;
 				else $res[] = ($g) ? $row : $row->nme;
 			}

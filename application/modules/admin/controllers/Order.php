@@ -59,6 +59,7 @@ class Order extends Admin {
                  $data['previous'] = $base_url."order/view?page=".$previous;
                  $data['next'] = $base_url."order/view?page=".$next;
              }
+             $data['tokens'] = $this->get_usertoken();
                 $this->load->view('templates/header');    
                 $this->load->view('admin/order',$data); 
                 $this->load->view('templates/footer');   
@@ -137,6 +138,13 @@ class Order extends Admin {
             $this->load->view('templates/header');    
             $this->load->view('admin/payment_box',$data);
             $this->load->view('templates/footer');  
+        }
+
+        private function get_usertoken()
+        {
+                $user_id = $this->session->userdata('user_id');
+                $token = $this->order_model->get_token($user_id);
+                return $token;
         }
         
 }

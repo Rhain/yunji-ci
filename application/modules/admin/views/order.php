@@ -1,6 +1,7 @@
 <header class="content__title">
     <h1>购买宠物</h1>
     <small>支持多种加密货币购买宠物.</small>
+    <small>总资产:<?php echo $tokens ?></small>
 </header>
 <div class="card">
     <div class="card-block">
