@@ -89,7 +89,7 @@ class Auth extends CI_Controller {
 				'id'   			=> 	'password',
 				'type' 			=> 	'password',
 				'class'			=>	'form-control',
-				'placeholder'	=>	'Input your password',
+				'placeholder'	=>	'输入密码',
 			);
 
 			$this->_render_page('auth/login', $this->data);
@@ -136,14 +136,14 @@ class Auth extends CI_Controller {
 				'id'   			=> 	'old',
 				'type' 			=> 	'password',
 				'class'			=> 	'form-control',
-				'placeholder'	=>	'Old password',
+				'placeholder'	=>	'旧密码',
 			);
 			$this->data['new_password'] = array(
 				'name'    		=> 	'new',
 				'id'      		=> 	'new',
 				'type'    		=> 	'password',
 				'class'	  		=> 	'form-control',
-				'placeholder'	=>	'New Password (at least 8 characters long)',
+				'placeholder'	=>	'新密码 (至少8个字符长)',
 				'pattern' 		=> 	'^.{'.$this->data['min_password_length'].'}.*$',
 			);
 			$this->data['new_password_confirm'] = array(
@@ -151,7 +151,7 @@ class Auth extends CI_Controller {
 				'id'     		=> 	'new_confirm',
 				'type'    		=> 	'password',
 				'class'	  		=> 	'form-control',
-				'placeholder'	=>	'Confirm New Password',
+				'placeholder'	=>	'确认新密码',
 				'pattern' 		=> 	'^.{'.$this->data['min_password_length'].'}.*$',
 			);
 			$this->data['user_id'] = array(

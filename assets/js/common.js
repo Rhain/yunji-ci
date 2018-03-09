@@ -1,6 +1,8 @@
 function show_page_for_backend(page_url, e) {
     $('.dashboard-right').show();
+    $('.dashboard-right').html();
     $(".dashboard-right").load(page_url, function (response, status, xhr) {
+
     });
 }
 $(document).on('click', '.navigation li', function (e) {

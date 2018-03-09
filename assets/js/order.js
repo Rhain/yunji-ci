@@ -28,3 +28,20 @@ function makeorder(){
         }
 })
 }
+
+function repay(orderid,user_id,total_amount){
+    res_url = baseurl+'order/preparePay?orderId='+orderid+'&userId='+user_id+'&totalAmount='+total_amount;
+    window.location.replace(res_url);
+}
+
+function delete_order(orderid){
+    $.ajax({
+        url : baseurl+'order/del',
+        type : 'post',
+        data : {order_id : orderid},
+        success : function(res) {
+            res_url = baseurl+'order/view';
+            window.location.replace(res_url);
+        }
+    })
+}
