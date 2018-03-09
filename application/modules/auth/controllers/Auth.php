@@ -174,7 +174,7 @@ class Auth extends CI_Controller {
 			{
 				//if the password was successfully changed
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				$this->logout();
+			//	$this->logout();
 			}
 			else
 			{
@@ -821,10 +821,14 @@ class Auth extends CI_Controller {
 		
 		$this->viewdata = (empty($data)) ? $this->data: $data;
 		 if($view != 'auth/change_password')
-		 $this->load->view('templates/blank/header');
+		 	$this->load->view('templates/blank/header');
+		 else
+		 	$this->load->view('templates/header');
 		 $view_html = $this->load->view($view, $this->viewdata, $returnhtml);
 		 if($view != 'auth/change_password')
-                 $this->load->view('templates/blank/footer');
+			$this->load->view('templates/blank/footer');
+		 else
+		 $this->load->view('templates/footer');
 
 		if ($returnhtml) return $view_html;//This will return html on 3rd argument being true
 	}

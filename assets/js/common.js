@@ -11,7 +11,7 @@ $(document).on('click', '.navigation li', function (e) {
 });
 $(window).on('load', function () {
  //   show_page_for_backend('admin/view');
- if(window.location.href.indexOf("order/view") > -1) {
+ if(window.location.href.indexOf("order/view") > -1 || window.location.href.indexOf("order/preparePay") > -1) {
     jQuery('.navigation li.navigation__active').removeClass('navigation__active');
     jQuery('.navigation li.order_menu').addClass("navigation__active");
  }

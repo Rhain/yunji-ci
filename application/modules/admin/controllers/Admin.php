@@ -74,7 +74,9 @@ class Admin extends CI_Controller {
         {
             $base_url = $this->config->base_url();
             $data['base_url'] = $base_url;
+            $this->load->view('templates/header');
             $this->load->view('admin/settings');
+            $this->load->view('templates/footer');
         }
         
         public function customers()

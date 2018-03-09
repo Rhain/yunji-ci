@@ -39,7 +39,7 @@ class Order extends Admin {
                 $userID 		= $_GET['userId'];
                 $userFormat		= "COOKIE"; 
                 $orderID		= $_GET['orderId'];
-                $amountUSD		= intval($_GET['totalAmount']);
+                $amountUSD		= floatval($_GET['totalAmount']);
                 $period		= "NOEXPIRY";
                 $def_language	= "cn";
                 $def_coin		= "bitcoin";
@@ -87,9 +87,9 @@ class Order extends Admin {
                 $data['def_coin'] = $def_coin;
                 $data['def_language'] = $def_language;
 
-        //    $this->load->view('templates/header');    
+            $this->load->view('templates/header');    
             $this->load->view('admin/payment_box',$data);
-        //    $this->load->view('templates/footer');  
+            $this->load->view('templates/footer');  
         }
         
 }

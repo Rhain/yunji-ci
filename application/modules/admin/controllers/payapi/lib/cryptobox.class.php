@@ -1185,7 +1185,7 @@ class Cryptobox {
 	    // Debug Raw JSON Payment Data from gourl.io
 	    // -------------------------------------------------------------------------------------------
 	    
-	     if ($debug)
+	     if (false)
 	     {    
 	     
 	     $tmp .= "<div class='container ".$ext."cryptobox_rawdata px-4 py-3' style='overflow-wrap: break-word; display:none;'>";
@@ -1368,6 +1368,10 @@ class Cryptobox {
 				$this->paymentID = run_sql($sql);
 				
 				$box_status = "cryptobox_newrecord"; 
+
+				// Update orders table
+				$sql = "UPDATE orders set is_paid=1, payment_id=".$this->paymentID." where id=".$res["order"]."";
+				run_sql($sql);
 			}
 
 			

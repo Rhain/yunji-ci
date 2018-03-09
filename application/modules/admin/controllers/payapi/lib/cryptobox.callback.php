@@ -121,6 +121,9 @@ if (isset($_POST["status"]) && in_array($_POST["status"], array("payment_receive
 		$paymentID = run_sql($sql);
 		
 		$box_status = "cryptobox_newrecord";
+
+		$sql = "UPDATE orders set is_paid=1, payment_id=".$paymentID." where id=".$_POST["order"]."";
+		run_sql($sql);
 	}
 	// Update transaction status to confirmed
 	elseif ($_POST["confirmed"] && !$txConfirmed)

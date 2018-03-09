@@ -127,7 +127,8 @@
                     <li>
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/settings\')"><i class="zmdi zmdi-settings"></i> 设置</a>';
+                        //    echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/settings\')"><i class="zmdi zmdi-settings"></i> 设置</a>';
+                        echo '<a href="'.$base_url . 'admin/settings"><i class="zmdi zmdi-settings"></i> 设置</a>';
                         ?>
                     </li>
 

@@ -18,15 +18,14 @@
                 <tr>
                     <td >
                         <span class="price">
-                        0.321
-                        </span>
+                        0.01
+                        </span>USD
                     </td>
                     <td >
-                        <select>
-                            <option>BTH</option>
-                            <option>ETH</option>
-                            <option>ETC</option>
-                            <option>LTC</option>
+                        <select id="coin_type">
+                            <option value="litecoin">LiteCoin</option>
+                            <option value="bitcoin">BitCoin</option>
+                            <option value="speedcoin">SpeedCoin</option>
                         </select>
                     </td>
                     <td >
