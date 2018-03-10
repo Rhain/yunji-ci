@@ -1,7 +1,8 @@
 <div class="login">
   <!-- Login -->
+  
   <div class="login__block active" id="l-login">
-    <div id="infoMessage" ><?php echo $message;?></div>
+    
     <div class="login__block__header">
       <i class="zmdi zmdi-account-circle"></i>
       <?php echo lang('login_heading');?>
@@ -29,6 +30,7 @@
         <a href="forgot_password"><?php echo lang('login_forgot_password');?></a>
       </div>
       <?php echo form_submit('submit', lang('login_submit_btn'), array('class' => 'btn btn-danger btn--icon-text waves-effect btn-block'));?>
+        <div id="infoMessage" ><?php echo $message;?></div>
     </div>
   </div>
 </div>

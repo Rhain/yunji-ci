@@ -48,10 +48,10 @@ class Auth extends CI_Controller {
 	public function login()
 	{
 		$this->data['title'] = $this->lang->line('login_heading');
-
+                
 		//validate form input
 		//$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
-		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
+		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required',array('required' => 'You must provide a %s.'));
 
 		if ($this->form_validation->run() == true)
 		{
@@ -78,7 +78,6 @@ class Auth extends CI_Controller {
 			// the user is not logging in so display the login page
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
 			$this->data['identity'] = array('name' => 'identity',
 				'id'    	=> 	'identity',
 				'type'  	=> 	'text',
@@ -91,9 +90,7 @@ class Auth extends CI_Controller {
 				'class'			=>	'form-control',
 				'placeholder'	=>	'输入密码',
 			);
-
 			$this->_render_page('auth/login', $this->data);
-			// $this->load->view('templates/blank/header');
 		}
 	}
 
@@ -425,7 +422,7 @@ class Auth extends CI_Controller {
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
         {
-            redirect('auth', 'refresh');
+         //   redirect('auth', 'refresh');
         }
 
         $tables = $this->config->item('tables','ion_auth');
@@ -467,7 +464,7 @@ class Auth extends CI_Controller {
             // check to see if we are creating the user
             // redirect them back to the admin page
             $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect("auth", 'refresh');
+            redirect("auth/login", 'refresh');
         }
         else
         {
@@ -821,12 +818,12 @@ class Auth extends CI_Controller {
 		
 		$this->viewdata = (empty($data)) ? $this->data: $data;
 		 if($view != 'auth/change_password')
-		 	$this->load->view('templates/blank/header');
+		 	$this->load->view('templates/crypto/header');
 		 else
 		 	$this->load->view('templates/header');
 		 $view_html = $this->load->view($view, $this->viewdata, $returnhtml);
 		 if($view != 'auth/change_password')
-			$this->load->view('templates/blank/footer');
+			$this->load->view('templates/crypto/footer');
 		 else
 		 $this->load->view('templates/footer');
 

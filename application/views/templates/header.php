@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SmartStore - XStore Alpha</title>
+    <title>小猪 - 以太坊宠物</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -56,7 +56,7 @@
                 <li>
                     <?php 
                         $base_url = $this->config->base_url();
-                        echo '<a href="'.$base_url.'eyeglasses/index">欢迎页面</a>';
+                        echo '<a href="'.$base_url.'">欢迎页面</a>';
                     ?>
                 </li>
                 <li>

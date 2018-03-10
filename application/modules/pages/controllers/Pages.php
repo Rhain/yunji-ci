@@ -13,8 +13,8 @@ class Pages extends MX_Controller {
         {
                 $data['title'] = ucfirst($page); // Capitalize the first letter
 
-                $this->load->view('templates/home/header');
+                $this->load->view('templates/crypto/header');
                 $this->load->view('pages/'.$page, $data);
-                $this->load->view('templates/home/footer');
+                $this->load->view('templates/crypto/footer');
         }
 }
