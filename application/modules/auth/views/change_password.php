@@ -1,11 +1,11 @@
 <header class="content__title">
-    <h1>Settings | Change Password</h1>
-    <small>In this page you can change your old password to new password.</small>
+    <h1>设置 | 更改密码</h1>
+    <small>将旧密码更改成新密码.</small>
 </header>
 
       <div class="card">
             <div class="card-header">
-                  <h2 class="card-title">Change Password</h2>
+                  <h2 class="card-title">更改密码</h2>
                   <div id="infoMessage"><?php echo $message;?></div>
             </div>
             <div class="card-block">

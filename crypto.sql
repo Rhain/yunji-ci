@@ -293,6 +293,7 @@ CREATE TABLE `users` (
   `phone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `users` ADD `tokens` INT NOT NULL DEFAULT '0' AFTER `phone`;
 --
 -- 转存表中的数据 `users`
 --

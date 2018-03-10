@@ -89,7 +89,7 @@ class Auth extends CI_Controller {
 				'id'   			=> 	'password',
 				'type' 			=> 	'password',
 				'class'			=>	'form-control',
-				'placeholder'	=>	'Input your password',
+				'placeholder'	=>	'输入密码',
 			);
 
 			$this->_render_page('auth/login', $this->data);
@@ -136,14 +136,14 @@ class Auth extends CI_Controller {
 				'id'   			=> 	'old',
 				'type' 			=> 	'password',
 				'class'			=> 	'form-control',
-				'placeholder'	=>	'Old password',
+				'placeholder'	=>	'旧密码',
 			);
 			$this->data['new_password'] = array(
 				'name'    		=> 	'new',
 				'id'      		=> 	'new',
 				'type'    		=> 	'password',
 				'class'	  		=> 	'form-control',
-				'placeholder'	=>	'New Password (at least 8 characters long)',
+				'placeholder'	=>	'新密码 (至少8个字符长)',
 				'pattern' 		=> 	'^.{'.$this->data['min_password_length'].'}.*$',
 			);
 			$this->data['new_password_confirm'] = array(
@@ -151,7 +151,7 @@ class Auth extends CI_Controller {
 				'id'     		=> 	'new_confirm',
 				'type'    		=> 	'password',
 				'class'	  		=> 	'form-control',
-				'placeholder'	=>	'Confirm New Password',
+				'placeholder'	=>	'确认新密码',
 				'pattern' 		=> 	'^.{'.$this->data['min_password_length'].'}.*$',
 			);
 			$this->data['user_id'] = array(
@@ -174,7 +174,7 @@ class Auth extends CI_Controller {
 			{
 				//if the password was successfully changed
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				$this->logout();
+			//	$this->logout();
 			}
 			else
 			{
@@ -821,10 +821,14 @@ class Auth extends CI_Controller {
 		
 		$this->viewdata = (empty($data)) ? $this->data: $data;
 		 if($view != 'auth/change_password')
-		 $this->load->view('templates/blank/header');
+		 	$this->load->view('templates/blank/header');
+		 else
+		 	$this->load->view('templates/header');
 		 $view_html = $this->load->view($view, $this->viewdata, $returnhtml);
 		 if($view != 'auth/change_password')
-                 $this->load->view('templates/blank/footer');
+			$this->load->view('templates/blank/footer');
+		 else
+		 $this->load->view('templates/footer');
 
 		if ($returnhtml) return $view_html;//This will return html on 3rd argument being true
 	}

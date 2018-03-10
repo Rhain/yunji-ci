@@ -11,8 +11,9 @@
   <?php
   
   // Text above payment box
-  $custom_text  = "<p class='lead'>Demo Text - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>";
-  $custom_text .= "<p class='lead'>Please contact us for any questions on aaa@example.com</p>";
+    $custom_text  = "";
+  // $custom_text  = "<p class='lead'>Demo Text - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>";
+  // $custom_text .= "<p class='lead'>Please contact us for any questions on aaa@example.com</p>";
    
   // Display payment box 	
   echo $box->display_cryptobox_bootstrap($coins, $def_coin, $def_language, $custom_text, 70, 200, true, "default", "default", 250, "", "ajax", true);

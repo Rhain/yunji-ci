@@ -1185,7 +1185,7 @@ class Cryptobox {
 	    // Debug Raw JSON Payment Data from gourl.io
 	    // -------------------------------------------------------------------------------------------
 	    
-	     if ($debug)
+	     if (false)
 	     {    
 	     
 	     $tmp .= "<div class='container ".$ext."cryptobox_rawdata px-4 py-3' style='overflow-wrap: break-word; display:none;'>";
@@ -1368,6 +1368,10 @@ class Cryptobox {
 				$this->paymentID = run_sql($sql);
 				
 				$box_status = "cryptobox_newrecord"; 
+
+				// Update orders table
+				$sql = "UPDATE orders set is_paid=1, payment_id=".$this->paymentID." where id=".$res["order"]."";
+				run_sql($sql);
 			}
 
 			
@@ -1931,11 +1935,12 @@ class Cryptobox {
 					if (property_exists($row, "idx")) $x = true;
 					$c = count(get_object_vars($row));
 					if ($c > 2 || ($c == 2 && !$x)) $g = true;
-					elseif (!property_exists($row, "nme")) die("Error in run_sql() - 'nme' not exists! SQL: $sql");
+				//	elseif (!property_exists($row, "nme")) die("Error in run_sql() - 'nme' not exists! SQL: $sql");
 					$f = false;
 				}
 	
 				if (!$g && $query->num_rows == 1 && property_exists($row, "nme")) return $row->nme;
+				elseif (!$g && $query->num_rows == 1 && property_exists($row, "token_cnt")) return $row->token_cnt;
 				elseif ($x) $res[$row->idx] = ($g) ? $row : $row->nme;
 				else $res[] = ($g) ? $row : $row->nme;
 			}
