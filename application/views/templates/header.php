@@ -39,14 +39,14 @@
             <div class="header__logo hidden-sm-down">
                 <h1>
                     <a href="<?php echo base_url() . 'admin/index' ?>">
-                        <img class="logo-admin" src="<?php echo base_url() . 'assets/images/logo-white.png' ?>" />
+                        <img class="logo-admin" src="<?php echo base_url() . 'assets/images/crypto-logo.png' ?>" />
                     </a>
                 </h1>
             </div>
 
             <form class="search">
                 <div class="search__inner">
-                    <input type="text" class="search__text" placeholder="Search for people, files, documents...">
+                    <input type="text" class="search__text" placeholder="搜索您想要的内容...">
                     <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
                 </div>
             </form>
@@ -74,8 +74,8 @@
                     <div class="user__info" data-toggle="dropdown">
                         <img class="user__img" src="<?php echo base_url().'assets/' ?>images/profile.jpg" alt="">
                         <div>
-                            <div class="user__name">Candra D Waskito</div>
-                            <div class="user__email">Administrator</div>
+                            <div class="user__name">养殖户</div>
+                            <div class="user__email">高级用户</div>
                         </div>
                     </div>
 
@@ -90,16 +90,15 @@
                     <li class="index_menu navigation__active">
                         <?php 
                             $base_url = $this->config->base_url();
-                        //    echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/view\')"><i class="zmdi zmdi-home"></i> 首页</a>';
-                        echo '<a href="'. $base_url . 'admin/view"><i class="zmdi zmdi-home"></i> 首页</a>';
+                            echo '<a href="'. $base_url . 'admin/view"><i class="zmdi zmdi-home"></i> 首页</a>';
                         ?>
                     </li>
-
-                    <li>
+                    
+                    <li class="order_menu">
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/products\')"><i class="zmdi zmdi-store"></i> 产品</a>';
-                        ?>
+                            echo '<a href="' . $base_url . 'order/view"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
+                        ?> 
                     </li>
 
                     <li>
@@ -108,27 +107,11 @@
                             echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/about\')"><i class="zmdi zmdi-assignment-account"></i> 关于</a>';
                         ?>    
                     </li>
-
-                    <li>
+                    
+                    <li class="setting_menu">
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/customers\')"><i class="zmdi zmdi-nature-people"></i> 客户</a>';
-                        ?> 
-                    </li>
-
-                    <li class="order_menu">
-                        <?php 
-                            $base_url = $this->config->base_url();
-                         //   echo '<a onclick="show_page_for_backend(\'' . $base_url . 'order/view\')"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
-                         echo '<a href="' . $base_url . 'order/view"><i class="zmdi zmdi-nature-people"></i> 购买</a>';
-                        ?> 
-                    </li>
-
-                    <li>
-                        <?php 
-                            $base_url = $this->config->base_url();
-                        //    echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/settings\')"><i class="zmdi zmdi-settings"></i> 设置</a>';
-                        echo '<a href="'.$base_url . 'admin/settings"><i class="zmdi zmdi-settings"></i> 设置</a>';
+                            echo '<a href="'.$base_url . 'admin/settings"><i class="zmdi zmdi-settings"></i> 设置</a>';
                         ?>
                     </li>
 

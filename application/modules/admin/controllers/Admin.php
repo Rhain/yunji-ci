@@ -26,8 +26,11 @@ class Admin extends CI_Controller {
 
         public function view()
         {
+            $this->load->model('admin/order_model');
+            $user_id = $this->session->userdata('user_id');
+            $data['token'] = $this->order_model->get_token($user_id);
             $this->load->view('templates/header');
-            $this->load->view('admin/view');
+            $this->load->view('admin/view',$data);
             $this->load->view('templates/footer');
         }
         public function products()

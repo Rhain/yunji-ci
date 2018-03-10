@@ -1,8 +1,8 @@
 
 <footer class="footer hidden-xs-down">
-                    <p>© 2017. Smart Store - XStore Dashboard. All rights reserved.</p>
+                    <p>© 2018. Cryptopigs - 以太坊加密猪. 云极科技所有.</p>
 
-                    <ul class="nav footer__nav">
+<!--                    <ul class="nav footer__nav">
                         <a class="nav-link" href="">Homepage</a>
 
                         <a class="nav-link" href="">Company</a>
@@ -10,7 +10,7 @@
                         <a class="nav-link" href="">Support</a>
 
                         <a class="nav-link" href="">Contacts</a>
-                    </ul>
+                    </ul>-->
                 </footer>
             </section>
         </main>

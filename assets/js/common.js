@@ -21,6 +21,10 @@ $(window).on('load', function () {
     jQuery('.navigation li.navigation__active').removeClass('navigation__active');
     jQuery('.navigation li.index_menu').addClass("navigation__active");
  }
+ if(window.location.href.indexOf("admin/settings") > -1 || window.location.href.indexOf("auth/change_password") > -1) {
+    jQuery('.navigation li.navigation__active').removeClass('navigation__active');
+    jQuery('.navigation li.setting_menu').addClass("navigation__active");
+ }
 });
 
 
