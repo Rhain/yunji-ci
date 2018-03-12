@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2018-03-08 18:23:34
+-- Generation Time: 2018-03-12 17:45:01
 -- 服务器版本： 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.27-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -95,7 +95,19 @@ CREATE TABLE `crypto_payments` (
 --
 
 INSERT INTO `crypto_payments` (`paymentID`, `boxID`, `boxType`, `orderID`, `userID`, `countryID`, `coinLabel`, `amount`, `amountUSD`, `unrecognised`, `addr`, `txID`, `txDate`, `txConfirmed`, `txCheckDate`, `processed`, `processedDate`, `recordCreated`) VALUES
-(1, 27108, 'paymentbox', 'invoice2', 'demo', 'CHN', 'SPD', 10.03280000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', 'fd54b1a123b824f230570761f92bbdf35db8b750feb33d4c691f3113589ae8b2', '2018-03-08 07:49:23', 0, '2018-03-08 07:49:30', 0, NULL, '2018-03-08 07:49:30');
+(1, 27108, 'paymentbox', 'invoice2', 'demo', 'CHN', 'SPD', 10.03280000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', 'fd54b1a123b824f230570761f92bbdf35db8b750feb33d4c691f3113589ae8b2', '2018-03-08 07:49:23', 0, '2018-03-08 07:49:30', 0, NULL, '2018-03-08 07:49:30'),
+(2, 27108, 'paymentbox', '29', '1', 'CHN', 'SPD', 12.57000000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '201d35ef465f477444abdeaefcad56bc0af2051fd1e7825688762a22950b220c', '2018-03-09 03:23:46', 0, '2018-03-09 03:24:02', 0, NULL, '2018-03-09 03:24:02'),
+(3, 27108, 'paymentbox', '30', '1', 'CHN', 'SPD', 12.43390000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '05c5a2ac81e71d1e8c1e567516cc9b0acb40f57282e6cc937df8eaf8f253062e', '2018-03-09 03:29:23', 1, '2018-03-09 10:16:04', 0, NULL, '2018-03-09 03:29:32'),
+(4, 27108, 'paymentbox', '31', '1', 'CHN', 'SPD', 12.26150000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '874293925a89c03d3626400e56542bbf89b11252ffe96954d35b5ac9e459cb16', '2018-03-09 03:31:22', 1, '2018-03-09 10:16:36', 0, NULL, '2018-03-09 03:31:27'),
+(5, 27108, 'paymentbox', '32', '1', 'CHN', 'SPD', 12.75990000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '0344f7e6673cddaca026365294c34e7f8958b2ac01b8636165c24ec73935cf49', '2018-03-09 03:33:05', 0, '2018-03-09 03:33:09', 0, NULL, '2018-03-09 03:33:09'),
+(6, 27108, 'paymentbox', '33', '1', 'CHN', 'SPD', 12.52000000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '9840264c2c7841e0904112432246cda166f0e388ad417e2018eb1f2beb466ce5', '2018-03-09 03:34:47', 0, '2018-03-09 03:34:50', 0, NULL, '2018-03-09 03:34:50'),
+(7, 27108, 'paymentbox', '34', '1', 'CHN', 'SPD', 12.79660000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '5f24025582cc9816ca0adfbb77c02e4bdd5b719720e30e5006deef0b04f3a809', '2018-03-09 03:37:16', 0, '2018-03-09 03:37:18', 0, NULL, '2018-03-09 03:37:18'),
+(8, 27108, 'paymentbox', '44', '1', 'CHN', 'SPD', 12.79080000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '7353058fcd1415e663410d9f1096cb01198706645fadef7fd9cff25a29717666', '2018-03-09 10:25:29', 0, '2018-03-09 10:25:41', 0, NULL, '2018-03-09 10:25:41'),
+(9, 27108, 'paymentbox', '45', '1', 'CHN', 'SPD', 12.65800000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', 'cd6082da5fb0767d84b2b65e3ef9d765b80afc87271d48af1dc5cff96e4e22e7', '2018-03-09 11:12:38', 0, '2018-03-09 11:12:44', 0, NULL, '2018-03-09 11:12:44'),
+(10, 27108, 'paymentbox', '46', '1', 'CHN', 'SPD', 12.24880000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', 'c9ece53e16eb40fcce26dfee7fea8810460472b3cf421eb80c203730b5c74627', '2018-03-09 11:17:11', 0, '2018-03-09 11:17:15', 0, NULL, '2018-03-09 11:17:15'),
+(11, 27108, 'paymentbox', '47', '1', 'CHN', 'SPD', 12.62230000, 0.01000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '678d4e362cafa58762c7821f5cb85cadaec6906070a602c71ccefd451b82c579', '2018-03-09 11:28:46', 0, '2018-03-09 11:28:50', 0, NULL, '2018-03-09 11:28:50'),
+(12, 27108, 'paymentbox', '48', '1', 'CHN', 'SPD', 23.08580000, 0.02000000, 0, 'SjMZzARHLUDE5PQjNG8fNhAKu42adrZMMb', '4844fba6e01051c9fa3e3b868f035b5973290a6d9da325efd2e5e62b0b4dd569', '2018-03-09 11:30:55', 0, '2018-03-09 11:31:07', 0, NULL, '2018-03-09 11:31:07'),
+(13, 27108, 'paymentbox', '49', '1', 'CHN', 'SPD', 11.79170000, 0.01000000, 0, 'SZLQAWDXcWHHbyoan7W8AZmUVUW2BuA4ig', 'd32929cc845f5e110b4cacda8774d0f54d90a50c15ad3158386d36dae0322a4d', '2018-03-12 01:50:58', 0, '2018-03-12 01:51:07', 0, NULL, '2018-03-12 01:51:07');
 
 -- --------------------------------------------------------
 
@@ -218,6 +230,14 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(1, '::1', 'abc@123.com', 1520839568),
+(2, '::1', 'abc@123.com', 1520839589);
+
 -- --------------------------------------------------------
 
 --
@@ -252,6 +272,7 @@ CREATE TABLE `orders` (
   `usd_amount` float NOT NULL,
   `token_cnt` int(11) NOT NULL,
   `is_paid` tinyint(1) NOT NULL,
+  `payment_id` int(11) NOT NULL DEFAULT '0',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -260,12 +281,47 @@ CREATE TABLE `orders` (
 -- 转存表中的数据 `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `usd_amount`, `token_cnt`, `is_paid`, `created`, `updated`) VALUES
-(1, 1, 3.85, 12, 0, '2018-03-08 10:16:15', '2018-03-08 10:16:15'),
-(2, 1, 6.74, 21, 0, '2018-03-08 10:17:56', '2018-03-08 10:17:56'),
-(3, 1, 3.85, 12, 0, '2018-03-08 10:18:54', '2018-03-08 10:18:54'),
-(4, 1, 1.28, 4, 0, '2018-03-08 10:22:53', '2018-03-08 10:22:53'),
-(5, 1, 6.74, 21, 0, '2018-03-08 10:23:17', '2018-03-08 10:23:17');
+INSERT INTO `orders` (`id`, `user_id`, `usd_amount`, `token_cnt`, `is_paid`, `payment_id`, `created`, `updated`) VALUES
+(1, 1, 3.85, 12, 0, 0, '2018-03-08 10:16:15', '2018-03-08 10:16:15'),
+(2, 1, 6.74, 21, 0, 0, '2018-03-08 10:17:56', '2018-03-08 10:17:56'),
+(3, 1, 3.85, 12, 0, 0, '2018-03-08 10:18:54', '2018-03-08 10:18:54'),
+(4, 1, 1.28, 4, 0, 0, '2018-03-08 10:22:53', '2018-03-08 10:22:53'),
+(5, 1, 6.74, 21, 0, 0, '2018-03-08 10:23:17', '2018-03-08 10:23:17'),
+(6, 1, 0.96, 3, 0, 0, '2018-03-08 11:02:41', '2018-03-08 11:02:41'),
+(7, 1, 1.93, 6, 0, 0, '2018-03-08 11:04:05', '2018-03-08 11:04:05'),
+(8, 1, 0.96, 3, 0, 0, '2018-03-08 11:12:46', '2018-03-08 11:12:46'),
+(9, 1, 1.6, 5, 0, 0, '2018-03-08 11:14:09', '2018-03-08 11:14:09'),
+(10, 1, 0.96, 3, 0, 0, '2018-03-08 11:15:55', '2018-03-08 11:15:55'),
+(11, 1, 1.93, 6, 0, 0, '2018-03-08 11:20:02', '2018-03-08 11:20:02'),
+(12, 1, 1.93, 6, 0, 0, '2018-03-08 11:20:41', '2018-03-08 11:20:41'),
+(13, 1, 2.57, 8, 0, 0, '2018-03-08 11:21:16', '2018-03-08 11:21:16'),
+(14, 1, 1.93, 6, 0, 0, '2018-03-08 11:21:51', '2018-03-08 11:21:51'),
+(15, 1, 1.6, 5, 0, 0, '2018-03-08 11:35:23', '2018-03-08 11:35:23'),
+(16, 1, 1.93, 6, 0, 0, '2018-03-08 11:40:07', '2018-03-08 11:40:07'),
+(17, 1, 1.28, 4, 0, 0, '2018-03-08 11:42:53', '2018-03-08 11:42:53'),
+(18, 1, 1.93, 6, 0, 0, '2018-03-08 11:59:53', '2018-03-08 11:59:53'),
+(19, 1, 2.25, 7, 0, 0, '2018-03-08 12:01:41', '2018-03-08 12:01:41'),
+(20, 1, 32.1, 100, 0, 0, '2018-03-09 02:02:47', '2018-03-09 02:02:47'),
+(21, 1, 32.1, 100, 0, 0, '2018-03-09 02:03:21', '2018-03-09 02:03:21'),
+(22, 1, 1605, 5000, 0, 0, '2018-03-09 02:04:28', '2018-03-09 02:04:28'),
+(23, 1, 192.6, 600, 0, 0, '2018-03-09 02:20:29', '2018-03-09 02:20:29'),
+(24, 1, 224.7, 700, 0, 0, '2018-03-09 02:21:21', '2018-03-09 02:21:21'),
+(25, 1, 320.68, 999, 0, 0, '2018-03-09 02:29:22', '2018-03-09 02:29:22'),
+(26, 1, 0.01, 1, 0, 0, '2018-03-09 03:19:19', '2018-03-09 03:19:19'),
+(27, 1, 10, 1000, 0, 0, '2018-03-09 03:20:03', '2018-03-09 03:20:03'),
+(34, 1, 0.01, 1, 1, 7, '2018-03-09 03:37:00', '2018-03-09 03:37:19'),
+(38, 1, 0.89, 89, 0, 0, '2018-03-09 05:21:13', '2018-03-09 05:21:13'),
+(39, 1, 0.05, 5, 0, 0, '2018-03-09 06:13:33', '2018-03-09 06:13:33'),
+(40, 1, 0.06, 6, 0, 0, '2018-03-09 06:13:53', '2018-03-09 06:13:53'),
+(41, 1, 0.02, 2, 0, 0, '2018-03-09 09:06:36', '2018-03-09 09:06:36'),
+(43, 1, 0.09, 9, 0, 0, '2018-03-09 09:58:08', '2018-03-09 09:58:08'),
+(44, 1, 0.01, 1, 1, 8, '2018-03-09 10:22:32', '2018-03-09 10:25:41'),
+(45, 1, 0.01, 1, 1, 9, '2018-03-09 11:12:17', '2018-03-09 11:12:44'),
+(46, 1, 0.01, 1, 1, 10, '2018-03-09 11:16:49', '2018-03-09 11:17:15'),
+(47, 1, 0.01, 1, 1, 11, '2018-03-09 11:28:28', '2018-03-09 11:28:50'),
+(48, 1, 0.02, 2, 1, 12, '2018-03-09 11:30:31', '2018-03-09 11:31:07'),
+(49, 1, 0.01, 1, 1, 13, '2018-03-12 01:50:33', '2018-03-12 01:51:07'),
+(50, 1, 0.06, 6, 0, 0, '2018-03-12 07:28:26', '2018-03-12 07:28:26');
 
 -- --------------------------------------------------------
 
@@ -290,16 +346,17 @@ CREATE TABLE `users` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `company` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL
+  `phone` varchar(20) DEFAULT NULL,
+  `tokens` int(11) NOT NULL DEFAULT '0',
+  `last_code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `users` ADD `tokens` INT NOT NULL DEFAULT '0' AFTER `phone`;
 --
 -- 转存表中的数据 `users`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$08$worrAMRVIye5KILvQ/JiK.dyaCCmXYyJ22lvJuNvhz.kIq.BHMpPe', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1520503918, 1, 'Admin', 'istrator', 'ADMIN', '0');
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `tokens`, `last_code`) VALUES
+(1, '127.0.0.1', 'administrator', '$2y$08$9qJfiE57MRMnjQuFZjJ9s.Qgkr3PKXgn6tjD9FhoHd1/j2mTbhPC2', '', 'qian.walstonn@qq.com', '', NULL, NULL, NULL, 1268889823, 1520847550, 1, 'Admin', 'istrator', 'ADMIN', '0', 4, 'wPwmfZei');
 
 -- --------------------------------------------------------
 
@@ -442,7 +499,7 @@ ALTER TABLE `categories`
 -- 使用表AUTO_INCREMENT `crypto_payments`
 --
 ALTER TABLE `crypto_payments`
-  MODIFY `paymentID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `paymentID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用表AUTO_INCREMENT `customers`
@@ -472,7 +529,7 @@ ALTER TABLE `groups`
 -- 使用表AUTO_INCREMENT `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用表AUTO_INCREMENT `media`
@@ -484,7 +541,7 @@ ALTER TABLE `media`
 -- 使用表AUTO_INCREMENT `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- 使用表AUTO_INCREMENT `users`

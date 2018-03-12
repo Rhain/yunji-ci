@@ -14,6 +14,8 @@ $route['order/paycallback'] = 'admin/order/paycallback';
 $route['order/makeOrder'] = 'admin/order/makeOrder';
 $route['order/preparePay'] = 'admin/order/preparePay';
 $route['order/del'] = 'admin/order/del';
+// admin promotion
+$route['promo/view'] = 'admin/promo/view';
 // auth
 $route['auth/sendVFcode'] = 'auth/sendVFcode';
 // page module

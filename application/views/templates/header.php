@@ -101,10 +101,10 @@
                         ?> 
                     </li>
 
-                    <li>
+                    <li class="promo_menu">
                         <?php 
                             $base_url = $this->config->base_url();
-                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/about\')"><i class="zmdi zmdi-assignment-account"></i> 关于</a>';
+                            echo '<a href="' . $base_url . 'promo/view"><i class="zmdi zmdi-assignment-account"></i>推广</a>';
                         ?>    
                     </li>
                     
