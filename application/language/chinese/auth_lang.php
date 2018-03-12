@@ -28,7 +28,7 @@ $lang['login_password_label']  = '密码:';
 $lang['login_remember_label']  = '记住我:';
 $lang['login_submit_btn']      = '登录';
 $lang['login_forgot_password'] = '忘记密码?';
-$lang['login_need_email']      =  '请输入用户名或者邮箱';
+$lang['login_need_email']      =  '请输入登录邮箱';
 $lang['login_need_password']   =  '请输入密码';
 
 // Index

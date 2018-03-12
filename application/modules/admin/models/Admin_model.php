@@ -88,6 +88,14 @@ class Admin_model extends CI_Model {
             }
             $this->db->delete('eyeglasses', array('id'=>$pid));
         }
+        public function update_code($email,$code){
+            $data = array(
+                'last_code' => $code
+            );
+            $this->db->where('email',$email);
+            $this->db->update('users',$data);
+
+        }
         
 }
 

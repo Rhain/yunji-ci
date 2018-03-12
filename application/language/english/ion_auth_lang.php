@@ -44,6 +44,8 @@ $lang['login_unsuccessful']                  = 'Incorrect Login';
 $lang['login_unsuccessful_not_active']       = 'Account is inactive';
 $lang['login_timeout']                       = 'Temporarily Locked Out.  Try again later.';
 $lang['logout_successful']                   = 'Logged Out Successfully';
+$lang['code_required']                       =  'Your last login is more than one day ago, veryfication code required';
+$lang['code_wrong']                          =  'Email veryfication code Wrong';
 
 // Account Changes
 $lang['update_successful']                   = 'Account Information Successfully Updated';

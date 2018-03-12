@@ -28,8 +28,8 @@ $lang['login_password_label']  = 'Password:';
 $lang['login_remember_label']  = 'Remember Me:';
 $lang['login_submit_btn']      = 'Login';
 $lang['login_forgot_password'] = 'Forgot your password?';
-$lang['login_need_email']      =  'email or username is requried';
-$lang['login_need_password']   =  'password is requried';
+$lang['login_need_email']      =  'Please input Email';
+$lang['login_need_password']   =  'Please input Password';
 
 // Index
 $lang['index_heading']           = 'Users';

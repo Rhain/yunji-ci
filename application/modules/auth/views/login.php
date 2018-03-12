@@ -17,6 +17,10 @@
         <span style="display:none" id="notget"><a href="#" onclick="resend()">未收到？再次发送</a></span>
         <i class="form-group__bar"></i>
       </div>
+      <div class="form-group form-group--float form-group--centered">
+        <input type="text" name="code" id="code" placeholder="输入验证码" class="form-control" />
+        一天内同一IP登录无需邮箱验证码
+      </div>
       <div class="form-group form-group--float form-group--centered form-password">
         <?php echo form_input($password);?>
         <i class="form-group__bar"></i>

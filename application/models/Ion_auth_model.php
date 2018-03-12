@@ -961,7 +961,7 @@ class Ion_auth_model extends CI_Model
 	 * @return bool
 	 * @author Mathew
 	 **/
-	public function login($identity, $password, $remember=FALSE)
+	public function login($identity, $password, $remember=FALSE,$code="")
 	{
 		$this->trigger_events('pre_login');
 
@@ -973,7 +973,7 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('extra_where');
 
-		$query = $this->db->select($this->identity_column . ', email, id, password, active, last_login')
+		$query = $this->db->select($this->identity_column . ', email, id, password, active, last_login, last_code')
 		                  ->where($this->identity_column, $identity)
 		                  ->limit(1)
 		    			  ->order_by('id', 'desc')
@@ -996,8 +996,28 @@ class Ion_auth_model extends CI_Model
 
 			$password = $this->hash_password_db($user->id, $password);
 
+			$last_code = $user->last_code;
+			
+			$last_login = $user->last_login;
+
 			if ($password === TRUE)
 			{
+				// If the same ip last login more than 1 day ago, need to check the veryfi code
+				if(time()-intval($last_login)>24*60*60)
+				{
+					if($code == "")
+					{
+						$this->trigger_events('post_login_unsuccessful');
+						$this->set_error('code_required');	
+						return FALSE;
+					}
+					elseif($code != $user->last_code)
+					{
+						$this->trigger_events('post_login_unsuccessful');
+						$this->set_error('code_wrong');	
+						return FALSE;
+					}
+				}
 				if ($user->active == 0)
 				{
 					$this->trigger_events('post_login_unsuccessful');

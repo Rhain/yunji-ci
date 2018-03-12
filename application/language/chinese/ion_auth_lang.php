@@ -44,6 +44,8 @@ $lang['login_unsuccessful']                  = '非法登录';
 $lang['login_unsuccessful_not_active']       = '账户未激活';
 $lang['login_timeout']                       = '账户暂时被锁.请稍后重试.';
 $lang['logout_successful']                   = '登出成功';
+$lang['code_required']                       = '上次登录超过一天，需要邮箱验证码';
+$lang['code_wrong']                          = '邮箱验证码错误';
 
 // Account Changes
 $lang['update_successful']                   = '账户信息更新成功';

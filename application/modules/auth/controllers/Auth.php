@@ -58,7 +58,7 @@ class Auth extends CI_Controller {
 			// check to see if the user is logging in
 			// check for "remember me"
 			$remember = (bool) $this->input->post('remember');
-            if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+            if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember,$this->input->post('code')))
 			{
 				//if the login is successful
 				//redirect them back to the home page
@@ -83,7 +83,7 @@ class Auth extends CI_Controller {
 				'type'  				=> 	'text',
 				'class'					=>	'form-control',
 				'value' 				=> 	$this->form_validation->set_value('identity'),
-				'placeholder'			=>	$this->lang->line('login_identity_label'),
+				'placeholder'			=>	$this->lang->line('login_need_email'),
 			);
 			$this->data['password'] = array('name' => 'password',
 				'id'   			=> 	'password',
@@ -856,7 +856,10 @@ class Auth extends CI_Controller {
 		//邮件主题
 		$mailsubject = "登录随机码";
 		//邮件内容
-		$mailbody = "88000";
+		$mailbody = $this->generateRandomString(8);
+		//更新数据库缓存
+		$this->load->model('admin/admin_model');
+		$this->admin_model->update_code($address,$mailbody);
 		//邮件格式（HTML/TXT）,TXT为文本邮件
 		$mailtype = "TXT";
 		//这里面的一个true是表示使用身份验证,否则不使用身份验证.
@@ -866,6 +869,16 @@ class Auth extends CI_Controller {
 		//发送邮件
 		$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
 	//	$this->output ->set_content_type('application/json') ->set_output(json_encode($data)); 
+	}
+
+	private function generateRandomString($length = 10) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
 	}
 
 }
