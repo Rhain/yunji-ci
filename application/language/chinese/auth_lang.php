@@ -28,6 +28,8 @@ $lang['login_password_label']  = '密码:';
 $lang['login_remember_label']  = '记住我:';
 $lang['login_submit_btn']      = '登录';
 $lang['login_forgot_password'] = '忘记密码?';
+$lang['login_need_email']      =  '请输入用户名或者邮箱';
+$lang['login_need_password']   =  '请输入密码';
 
 // Index
 $lang['index_heading']           = '用户';
@@ -127,7 +129,7 @@ $lang['change_password_validation_new_password_confirm_label'] = '确认新密�
 
 // Forgot Password
 $lang['forgot_password_heading']                 = '忘记密码';
-$lang['forgot_password_subheading']              = '请输入你的 %s 这样我妈可以向你邮箱发布重置密码邮件.';
+$lang['forgot_password_subheading']              = '请输入你的 %s 这样我们可以向你邮箱发布重置密码邮件.';
 $lang['forgot_password_email_label']             = '%s:';
 $lang['forgot_password_submit_btn']              = '提交';
 $lang['forgot_password_validation_email_label']  = '电子邮箱';

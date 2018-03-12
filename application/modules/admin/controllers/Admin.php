@@ -158,6 +158,7 @@ class Admin extends CI_Controller {
                 $this->admin_model->delete_eyeglasses($_GET['pid']);
             }
         }
+
         
         
         private function handle_images( $item_id ){

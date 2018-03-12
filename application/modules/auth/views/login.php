@@ -6,15 +6,15 @@
     <div class="login__block__header">
       <i class="zmdi zmdi-account-circle"></i>
       <?php echo lang('login_heading');?>
-      <p hidden="true"><?php echo lang('login_subheading');?></p>
+      <p ><?php echo lang('login_subheading');?></p>
     </div>
 
     <div class="login__block__body">
       <?php echo form_open("auth/login");?>
-      <div hidden="true" class="form-group form-group--float form-group--centered">
-        <input type="text" class="form-control">
-        <?php echo lang('login_identity_label', 'identity');?>
-        <label><?php  echo form_input($identity);?></label>
+      <div  class="form-group form-group--float form-group--centered">
+        <?php  echo form_input($identity);?>
+        <input type="button" id="bt_sendVF" value="发送验证码" onclick="sendVFcode()" />
+        <span style="display:none" id="notget"><a href="#" onclick="resend()">未收到？再次发送</a></span>
         <i class="form-group__bar"></i>
       </div>
       <div class="form-group form-group--float form-group--centered form-password">
@@ -34,3 +34,5 @@
     </div>
   </div>
 </div>
+<input type="hidden" id="base_url" value="<?php echo base_url() ?>" />
+<script type="text/javascript" src="<?php echo base_url().'assets/' ?>js/auth.js"></script>

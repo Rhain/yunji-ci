@@ -14,6 +14,8 @@ $route['order/paycallback'] = 'admin/order/paycallback';
 $route['order/makeOrder'] = 'admin/order/makeOrder';
 $route['order/preparePay'] = 'admin/order/preparePay';
 $route['order/del'] = 'admin/order/del';
+// auth
+$route['auth/sendVFcode'] = 'auth/sendVFcode';
 // page module
 $route['pages/view'] = 'pages/view';
 //eyeglasses module
@@ -33,3 +35,4 @@ $route['about/home']='about/home';
 $route['default_controller'] = 'pages/view';
 $route['404_override'] = '';
 //$route['translate_uri_dashes'] = FALSE;
+

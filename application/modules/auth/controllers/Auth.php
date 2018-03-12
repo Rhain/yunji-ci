@@ -50,15 +50,15 @@ class Auth extends CI_Controller {
 		$this->data['title'] = $this->lang->line('login_heading');
                 
 		//validate form input
-		//$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
-		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required',array('required' => 'You must provide a %s.'));
+		$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required',array('required' => $this->lang->line('login_need_email')));
+		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required',array('required' => $this->lang->line('login_need_password')));
 
 		if ($this->form_validation->run() == true)
 		{
 			// check to see if the user is logging in
 			// check for "remember me"
 			$remember = (bool) $this->input->post('remember');
-                        if ($this->ion_auth->login("admin@admin.com", $this->input->post('password'), $remember))
+            if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
 				//if the login is successful
 				//redirect them back to the home page
@@ -79,10 +79,11 @@ class Auth extends CI_Controller {
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 			$this->data['identity'] = array('name' => 'identity',
-				'id'    	=> 	'identity',
-				'type'  	=> 	'text',
-				'class'		=>	'form-control',
-				'value' 	=> 	$this->form_validation->set_value('identity'),
+				'id'    				=> 	'identity',
+				'type'  				=> 	'text',
+				'class'					=>	'form-control',
+				'value' 				=> 	$this->form_validation->set_value('identity'),
+				'placeholder'			=>	$this->lang->line('login_identity_label'),
 			);
 			$this->data['password'] = array('name' => 'password',
 				'id'   			=> 	'password',
@@ -828,6 +829,43 @@ class Auth extends CI_Controller {
 		 $this->load->view('templates/footer');
 
 		if ($returnhtml) return $view_html;//This will return html on 3rd argument being true
+	}
+
+
+	public function sendVFcode()
+	{
+		$address = $this->input->post('email');
+		header("Content-Type: text/html; charset=utf-8");
+ 
+		//引入发送邮件类
+		require("smtp.php");
+		//使用163邮箱服务器
+		$smtpserver = "smtp.126.com";
+		//163邮箱服务器端口
+		$smtpserverport = 25;
+		//你的163服务器邮箱账号
+		$smtpusermail = "yanhuangpai@126.com";
+		//收件人邮箱
+		$smtpemailto = $address;
+	 
+		//你的邮箱账号(去掉@163.com)
+		$smtpuser = "yanhuangpai";//你的163邮箱去掉后面的163.com
+		//你的邮箱密码
+		$smtppass = "a123456"; //你的163邮箱SMTP的授权码，千万不要填密码！！！
+	 
+		//邮件主题
+		$mailsubject = "登录随机码";
+		//邮件内容
+		$mailbody = "88000";
+		//邮件格式（HTML/TXT）,TXT为文本邮件
+		$mailtype = "TXT";
+		//这里面的一个true是表示使用身份验证,否则不使用身份验证.
+		$smtp = new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);
+		//是否显示发送的调试信息
+	//	$smtp->debug = TRUE;
+		//发送邮件
+		$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
+	//	$this->output ->set_content_type('application/json') ->set_output(json_encode($data)); 
 	}
 
 }
