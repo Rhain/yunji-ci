@@ -419,6 +419,7 @@ class Auth extends CI_Controller {
 	// create a new user
 	public function create_user()
     {
+		$inviter = isset($_GET['pid'])?(is_numeric($_GET['pid'])?intval($_GET['pid']):0):0;
         $this->data['title'] = $this->lang->line('create_user_heading');
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
@@ -457,7 +458,8 @@ class Auth extends CI_Controller {
                 'first_name' => $this->input->post('first_name'),
                 'last_name'  => $this->input->post('last_name'),
                 'company'    => $this->input->post('company'),
-                'phone'      => $this->input->post('phone'),
+				'phone'      => $this->input->post('phone'),
+				'inviter'	 => $inviter,
             );
         }
         if ($this->form_validation->run() == true && $this->ion_auth->register($identity, $password, $email, $additional_data))
